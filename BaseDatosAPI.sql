@@ -1,21 +1,17 @@
-CREATE DATABASE IF NOT EXISTS JuegosMesaAPI;
 USE JuegosMesaAPI;
-
 -- Crear la tabla si aún no existe
-CREATE TABLE IF NOT EXISTS Juegos (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    fotos JSON,
-    nombre VARCHAR(255) NOT NULL,
-    cantidad_de_jugadores VARCHAR(50) NOT NULL,
-    tipo JSON,
-    genero VARCHAR(50),
-    clasificacion_recomendada VARCHAR(50),
-    duracion_promedio VARCHAR(50),
-    complejidad VARCHAR(50),
-    habilidades JSON
+CREATE TABLE Juegos (
+    id INT PRIMARY KEY IDENTITY(1,1),
+    fotos NVARCHAR(MAX), -- Links como texto o JSON
+    nombre NVARCHAR(255) NOT NULL,
+    cantidad_de_jugadores NVARCHAR(50) NOT NULL,
+    tipo NVARCHAR(MAX), -- Guarda como JSON o texto
+    genero NVARCHAR(50),
+    clasificacion_recomendada NVARCHAR(50),
+    duracion_promedio NVARCHAR(50),
+    complejidad NVARCHAR(50),
+    habilidades NVARCHAR(MAX) -- Guarda como JSON o texto
 );
-
---Insercion de datos
 -- Insertar los datos en la tabla
 INSERT INTO Juegos (fotos, nombre, cantidad_de_jugadores, tipo, genero, clasificacion_recomendada, duracion_promedio, complejidad, habilidades)
 VALUES 
@@ -31,4 +27,3 @@ VALUES
 ('["https://m.media-amazon.com/images/I/8187GYRyxcL.jpg"]', 'Adivina quien', '2 jugadores', '["Tablero"]', 'Casual', '6+ años', 'Aproximadamente 20 minutos', 'Media-baja', '["Estrategia", "Creatividad"]'),
 ('["https://www.picclickimg.com/f9kAAOSwJABmCS0j/DUNGEONS-DRAGONS-REGOLE-BASE-SET-1-EG.webp"]', 'Calabozos y dragones', '4 a 10 jugadores (varia)', '["Tablero", "Dados"]', 'Fantasia', '12+ años', 'Sin limite (variado)', 'Alta', '["Rol", "Estrategico"]'),
 ('["https://m.media-amazon.com/images/I/8164F0L3ruL.jpg"]', 'Ultimate Werewolf', '5 a 10 jugadores', '["Cartas"]', 'Deduccion social', '9+ años', '45 a 90 minutos', 'Media-Alta', '["Observacion"]');
-
