@@ -1,16 +1,14 @@
-USE JuegosMesaAPI;
--- Crear la tabla si aún no existe
 CREATE TABLE Juegos (
-    id INT PRIMARY KEY IDENTITY(1,1),
-    fotos NVARCHAR(MAX), -- Links como texto o JSON
-    nombre NVARCHAR(255) NOT NULL,
-    cantidad_de_jugadores NVARCHAR(50) NOT NULL,
-    tipo NVARCHAR(MAX), -- Guarda como JSON o texto
-    genero NVARCHAR(50),
-    clasificacion_recomendada NVARCHAR(50),
-    duracion_promedio NVARCHAR(50),
-    complejidad NVARCHAR(50),
-    habilidades NVARCHAR(MAX) -- Guarda como JSON o texto
+    id SERIAL PRIMARY KEY,  -- Usamos SERIAL para autoincrementar el ID
+    fotos JSONB,  -- Usamos JSONB para almacenar datos JSON
+    nombre VARCHAR(255) NOT NULL,
+    cantidad_de_jugadores VARCHAR(50) NOT NULL,
+    tipo VARCHAR(255),  -- Puedes usar VARCHAR para cadenas de texto
+    genero VARCHAR(50),
+    clasificacion_recomendada VARCHAR(50),
+    duracion_promedio VARCHAR(50),
+    complejidad VARCHAR(50),
+    habilidades JSONB  -- Almacenamos habilidades como JSONB
 );
 -- Insertar los datos en la tabla
 INSERT INTO Juegos (fotos, nombre, cantidad_de_jugadores, tipo, genero, clasificacion_recomendada, duracion_promedio, complejidad, habilidades)
